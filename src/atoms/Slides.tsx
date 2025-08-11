@@ -1,0 +1,36 @@
+import ReactMarkdown from "react-markdown";
+
+
+export function CustomSlide({ title, text }: { title?: string; text?: string; }) {
+    return (
+        <div className="px-8 py-4">
+            <h1 className="hover:text-blue-600 text-xl sm:text-3xl font-bold text-[#a5cd6a]">
+                {title}
+            </h1>
+            <p className="text-sm font-normal text-gray-500 py-4 whitespace-pre-line"> <ReactMarkdown>{text}</ReactMarkdown></p>
+        </div>
+    );
+}
+
+export interface SlideData {
+    title: string;
+    text: string;
+}
+
+
+export function SlidesList({ slides }: { slides: SlideData[] }) {
+    return (
+        <div>
+            {slides.map((slide, idx) => (
+                <CustomSlide
+                    key={idx}
+                    title={slide.title}
+                    text={slide.text}
+                />
+            ))}
+        </div>
+    );
+}
+
+// Ejemplo de uso:
+// <SlidesList slides={slidesData} />
