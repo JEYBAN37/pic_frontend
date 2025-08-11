@@ -11,18 +11,27 @@ import indigenas from "../assets/indigenas.svg";
 import habitantes from "../assets/habitantes.svg";
 import discapacitados from "../assets/discapacitados.svg";
 import victimas from "../assets/victimas.svg";
+import educacion from "../assets/educacion.svg";
+import informacion from "../assets/informacion.svg";
+import conformacion from "../assets/conformacion.svg";
+import dispositivos from "../assets/colegio.svg";
+import email from '../assets/email.svg';
+import phone from '../assets/cell.svg';
+import ubicacion from '../assets/ubicacion.svg';
+import facebook from "../assets/facebook.png";
+import instagram from "../assets/instagram.png";
+
+
 
 export const ItemsNavbarArray: string[] = [
   "Inicio",
   "Introduccion",
   "Resultados",
   "Poblaciones",
-  "Tecnologias",
-  "Retos",
-  "Contacto",
 ];
 
 export const ItemsNavbar = {
+  subtitle: "Ciudad Bienestar",
   items: ItemsNavbarArray,
   logoPasto: {
     src: logo,
@@ -195,3 +204,87 @@ export const IntroduccionPIC = [
       img: habitantes
     },
   ]
+
+
+ export const SliderItemsTecnologias = [
+    {
+      title: "Educación para la salud",
+      text: "246 personas participantes en acciones de educación e información den salud con acciones de enfoque diferencial",
+      img: educacion
+    },
+    {
+      title: "Información en salud y jornadas",
+      text: "Estrategias de inclusión para el reconocimiento de la cultura ROM y acceso a servicios de salud con enfoque diferencial",
+      img: informacion
+    },
+    {
+      title: "Conformación y fortalecimiento",
+      text: "936 participantes en acciones de educación e información en  salud, acciones psicosociales mediante actividades de fortalecimiento de redes.",
+      img: conformacion
+    },
+        {
+      title: "Dispositivos comunitarios",
+      text: "1.034 personas con discapacidad participaron en actividades de educación e información en salud, fortalecimiento de redes comunitarias y dispositivos comunitarios.",
+      img: dispositivos
+    },
+  ]
+
+  export interface FooterDataStructure {
+  title: string;
+  img: string;
+  ref: string;
+  imgLogo: string;
+  refLogo: string;
+  text: string;
+  titleContact: string;
+  contact: {
+    text: string;
+    img: string;
+    ref: string;
+  }[];
+  redes: {
+    text: string;
+    img: string;
+    ref: string;
+  }[];
+}
+
+export const FooterData : FooterDataStructure = {
+        title: "Sistema de Informacion PIC",
+        img: ciudadBienestarLogo,
+        imgLogo: logo,
+        ref: ItemsNavbar.ciudadBienestar.href,
+        refLogo: ItemsNavbar.logoPasto.href,
+        text: "Para consultas y participación, contáctanos a través de los siguientes medios:",
+        titleContact: "Contacto",
+        contact: [
+            {
+                text: "**Email**: contacto@pic.com",
+                img: email,
+                ref: "mailto:contacto@pic.com.com?subject=Consulta&body=Hola,%20me%20gustaría%20contactarlos."
+            },
+            {
+                text: "**Teléfono**: +123 456 7890",
+                img: phone,
+                ref: "tel:+1234567890"
+            },
+            {
+                text: "**Dirección**: Calle Falsa 123",
+                img: ubicacion,
+                ref: "https://www.google.com/maps?q=Calle+Falsa+123"
+            }
+        ],
+        redes:[
+            {
+                text: "Facebook",
+                img: facebook,
+                ref: "https://www.facebook.com/ciudadbienestar"
+            },
+            {
+                text: "Instagram",
+                img: instagram,
+                ref: "https://www.instagram.com/ciudadbienestar"
+            }
+        ]
+
+    }

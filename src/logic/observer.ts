@@ -6,5 +6,5 @@ export const OrbserverFunction = (setActiveSection: (section: string) => void) =
             }
         });
     },
-    { threshold: 0.6 }
+    { threshold: 0.1 }
 );

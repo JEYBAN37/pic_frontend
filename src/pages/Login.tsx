@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import FormLogin from '../components/FormLogin';
 import NavBar from '../components/NavBar';
-import { IntroduccionPIC, ItemsLogin, ItemsNavbar, Resultado } from '../data/data';
+import { FooterData, IntroduccionPIC, ItemsLogin, ItemsNavbar, Resultado } from '../data/data';
 import { OrbserverFunction } from '../logic/observer';
 import PoblacionesSection from '../components/PoblacionesSection';
 import IntroduccionSection from '../components/IntroduccionSection';
 import { GetStadistics } from '../logic/get';
 import ResultadosSection, { type ResultadosProps } from '../components/ResultadosSection';
+import Footer from '../components/Footer';
 
 const Login: React.FC = () => {
     const [activeSection, setActiveSection] = React.useState('Inicio');
@@ -46,18 +47,17 @@ const Login: React.FC = () => {
 
 
     return (
-        <div className='flex w-full overflow-hidden bg-white flex-col'>
+        <div className='flex w-full bg-white flex-col'>
             {/* Navbar lateral derecha fija */}
 
             <NavBar
                 activeSection={activeSection}
-                setActiveSection={setActiveSection}
                 itemsNavbar={ItemsNavbar}
             />
 
             {/* Contenido principal */}
             <main className="flex flex-col w-full ">
-                <section id="Inicio" className="flex flex-col lg:flex-row  min-h-screen p-1 sm:px-6 sm:pt-2 sm:pb-0 items-center justify-center">
+                <section id="Inicio" className="flex flex-col lg:flex-row px-6 py-12 sm:py-16 lg:py-24 items-center justify-center">
                     <div className="basis-1/4 lg:basis-1/2 flex flex-col items-start justify-center w-full p-[8%] lg:pl-[5%] lg:py-0 lg:pr-0 lg:h-full">
                         <h1 className="text-4xl text-blue-600 lg:text-7xl font-bold lg:mb-1 hover:text-blue-300 cursor-pointer">{ItemsLogin.title}</h1>
                         <h1 className="text-4xl text-[#a5cd6a] lg:text-7xl font-bold lg:mb-1 hover:text-blue-300 cursor-pointer">{ItemsLogin.subtitle}</h1>
@@ -68,18 +68,15 @@ const Login: React.FC = () => {
                         <FormLogin />
                     </div>
                 </section>
-
                 {/* Sección de Experiencia */}
                 <IntroduccionSection ItemsLogin={ItemsLogin} IntroduccionPIC={IntroduccionPIC} />
-
-
                 {/* Sección de Resultados */}
                 <ResultadosSection {...ItemsResultados} />
-
                 {/* Sección de Poblaciones */}
                 <PoblacionesSection />
 
-
+                {/* Sección de Footer */}
+                <Footer {...FooterData} />
             </main>
         </div>
 

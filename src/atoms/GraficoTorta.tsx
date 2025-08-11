@@ -58,7 +58,7 @@ export default function GraficoTorta({ countPoblaciones, labelsDona }: Props) {
   };
 
   return (
-    <div className="basis-1/2 flex w-full h-full bg-white  rounded-2xl items-center justify-center shadow-lg my-4">
+    <div className="basis-1/2 flex w-full h-[250px] bg-white  rounded-2xl items-center justify-center my-4">
       {/* Leyenda manual */}
       <div className="flex w-[40%] ml-5 2xl:ml-10 flex-col justify-center text-sm text-gray-700">
         {labels.map((label, i) => (

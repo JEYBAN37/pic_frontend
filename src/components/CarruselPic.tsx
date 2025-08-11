@@ -24,7 +24,7 @@ const CarruselPic: React.FC<CarruselPicProps> = ({ items }) => {
                 {items.map((item, i) => (
                     <div
                         key={i}
-                        className="flex-shrink-0 w-full h-[400px] 2xl:h-[500px] flex flex-col lg:flex-row lg:items-center bg-white "
+                        className="flex-shrink-0 w-full flex flex-col lg:flex-row lg:items-center bg-white "
                     >
                         {/* Columna de texto o componente */}
                         <div className="flex flex-col justify-center px-[3%] py-[5%] lg:w-1/2 lg:h-max">

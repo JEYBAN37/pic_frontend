@@ -1,56 +1,85 @@
-import { useState } from "react";
-import GraficoTorta from "../atoms/GraficoTorta";
-import GraficoBarras from "../atoms/GraficoBarras";
-import { SliderItemsPoblaciones, type ResultadoStructure } from "../data/data";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { SliderItemsPoblaciones, SliderItemsTecnologias } from "../data/data";
 import Carousel from "./CarrosuelPoblaciones";
 
-
-export interface ResultadosProps {
-  resultadoSlides: ResultadoStructure;
-  countParticipantes: number;
-  countActividades: number;
-  countPoblaciones: number[];
-  labelsGenero: string[];
-  labelsDona: string[];
-  countGeneros: number[];
-}
-
 export default function Poblaciones() {
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
-  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="Poblaciones"
-      className="relative flex min-h-screen items-center justify-start bg-[#a5cd6a]"
+      className="relative flex min-h-[1300px] items-center justify-start bg-[#a5cd6a] overflow-hidden"
     >
-      {/* Contenedor título */}
-      <div
-        className={`h-full  flex items-center transition-all duration-500 justify-center ${open ? "w-[30%]" : "w-full  "
-          }`}
+      {/* Contenedor título (se achica si el panel se abre) */}
+      <motion.div
+        animate={{ width: visible ? "30%" : "100%" }}
+        transition={{ duration: 0.5 }}
+        className="flex items-center justify-center "
       >
-        <button
-          onClick={() => setOpen(!open)}
-          className="sm:text-2xl md:text-3xl lg:text-5xl hover:text-white font-bold text-blue-600  cursor-pointer text-center transition-transform duration-500 z-10 bg-transparent border-none outline-none"
-          style={{ appearance: "none" }}
-          aria-label="Mostrar u ocultar resultados"
-          type="button"
-        >
+        <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold text-blue-600 text-center">
           Poblaciones
-        </button>
-      </div>
+        </h1>
+      </motion.div>
 
-      {/* Panel lateral */}
-      <div
-        className={`absolute top-0 right-0  h-full bg-white shadow-xl transition-transform duration-500 ${open ? "translate-x-0 w-[70%]" : "translate-x-full w-[70%]"
-          }`}
-      >
-        <div className="w-full h-full flex flex-col md:flex-row items-center  justify-center mt-6 py-[20%]  px-[4%] lg:px-[4%]">
-          <Carousel items={SliderItemsPoblaciones} />
-        </div>
-      </div>
+      {/* Panel lateral animado */}
+      <AnimatePresence>
+        {visible && (
+          <motion.div
+            key="panel"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="absolute flex flex-col justify-center items-center top-0 right-0 min-h-[1300px] bg-white shadow-xl w-[70%]"
+          >
+            {/* Primera sección */}
+            <div className="w-full flex flex-col justify-items-center m-10 gap-4">
+              <h1 className="text-5xl hover:text-blue-500 font-bold text-blue-600  cursor-pointer text-center">
+                ¿Qué Atención Reciben?
+              </h1>
+              <p className="text-center text-sm font-normal text-gray-400">
+                Las poblaciones especiales reciben atención diferenciada que respeta
+                sus contextos culturales y necesidades específicas.
+              </p>
+            </div>
+
+            <div className="w-full flex flex-col md:flex-row items-center justify-center px-[10%]">
+              <Carousel items={SliderItemsPoblaciones} />
+            </div>
+
+            {/* Segunda sección */}
+            <div className="w-full flex flex-col justify-items-center m-10 gap-4">
+              <h1 className="text-5xl hover:text-blue-500 font-bold text-blue-600 cursor-pointer text-center">
+                Tecnologías PIC y Estrategias Implementadas
+              </h1>
+              <p className="text-center text-sm font-normal text-gray-400">
+                Estas acciones se desarrollan en entornos comunitarios, instituciones educativas, organizaciones sociales y económicos informales del municipio.
+              </p>
+            </div>
+
+            <div className="w-full flex flex-col md:flex-row items-center justify-center px-[10%]">
+              <Carousel items={SliderItemsTecnologias} />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
-
-
-
   );
 }

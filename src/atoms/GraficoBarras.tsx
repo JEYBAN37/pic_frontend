@@ -69,7 +69,7 @@ export default function GraficoBarras({ countGeneros, labels }: Props) {
   };
 
   return (
-    <div className="basis-1/2 flex w-full h-full bg-white  rounded-2xl items-center justify-center shadow-lg">
+    <div className="basis-1/2 flex w-full h-[250px] bg-white  rounded-2xl items-center justify-center">
 
       <div className="flex w-[90%] h-[100%]">
         <Bar data={data} options={options} />

@@ -1,49 +1,62 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import CarruselPic from "./CarruselPic";
 
 interface IntroduccionSectionProps {
-    ItemsLogin: {
-        introduccion: string;
-        detail: string;
-    };
-    IntroduccionPIC: {
-        img: string;
-        title: string;
-        component?: React.ComponentType<any>;
-        props?: any;
-    }[];
+  ItemsLogin: {
+    introduccion: string;
+    detail: string;
+  };
+  IntroduccionPIC: {
+    img: string;
+    title: string;
+    component?: React.ComponentType<any>;
+    props?: any;
+  }[];
 }
 
-export default function IntroduccionSection({ ItemsLogin, IntroduccionPIC }: IntroduccionSectionProps ) {
-  const [showCarrusel, setShowCarrusel] = useState(false);
+export default function IntroduccionSection({
+  ItemsLogin,
+  IntroduccionPIC,
+}: Readonly<IntroduccionSectionProps>) {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsVisible(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
 
   return (
-    <section
+    <motion.section
+      ref={sectionRef}
       id="Introduccion"
-      className="bg-blue-600 flex min-h-screen flex-col justify-center items-center overflow-hidden-lg"
+      className="bg-blue-600 px-32 py-[10%] flex flex-col justify-center items-center"
+      initial={{ opacity: 0, y: 100 }}       // Estado inicial (fuera de vista, abajo)
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }} // Entrada/Salida
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <button
-        type="button"
-        onClick={() => setShowCarrusel(!showCarrusel)}
-        className={`flex flex-col items-center transition-all duration-500
-        } focus:outline-none bg-transparent border-none p-0`}
-        aria-pressed={showCarrusel}
-      >
-        <h1 className="text-4xl text-white lg:text-6xl font-bold mb-2  hover:text-[#a5cd6a] cursor-pointer text-center">
-          {ItemsLogin.introduccion}
-        </h1>
-        <p className="text-white text- font-semibold hover:text-[#a5cd6a] cursor-pointer text-center">
-          {ItemsLogin.detail}
-        </p>
-      </button>
+      <h1 className="text-4xl text-white lg:text-6xl font-bold mb-2 hover:text-[#a5cd6a] cursor-pointer text-center">
+        {ItemsLogin.introduccion}
+      </h1>
+      <p className="text-white font-semibold hover:text-[#a5cd6a] cursor-pointer text-center">
+        {ItemsLogin.detail}
+      </p>
 
-      <div
-        className={`transition-all duration-500 ease-in-out ${
-          showCarrusel ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-        }`}
-      >
-        {showCarrusel && <CarruselPic items={IntroduccionPIC} />}
+      <div className="mt-8 w-full flex justify-center">
+        <CarruselPic items={IntroduccionPIC} />
       </div>
-    </section>
+    </motion.section>
   );
 }
