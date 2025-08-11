@@ -42,12 +42,12 @@ export default function IntroduccionSection({
     <motion.section
       ref={sectionRef}
       id="Introduccion"
-      className="bg-blue-600 px-32 py-[10%] flex flex-col justify-center items-center"
+      className="bg-white px-32 py-[10%] flex flex-col justify-center items-center"
       initial={{ opacity: 0, y: 100 }}       // Estado inicial (fuera de vista, abajo)
       animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }} // Entrada/Salida
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <h1 className="text-4xl text-white lg:text-6xl font-bold mb-2 hover:text-[#a5cd6a] cursor-pointer text-center">
+      <h1 className="text-4xl text-blue-600 lg:text-6xl font-bold mb-2 hover:text-[#a5cd6a] cursor-pointer text-center">
         {ItemsLogin.introduccion}
       </h1>
       <p className="text-white font-semibold hover:text-[#a5cd6a] cursor-pointer text-center">

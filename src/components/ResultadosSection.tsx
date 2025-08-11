@@ -38,7 +38,7 @@ export default function Resultados(resultadosProps: Readonly<ResultadosProps>) {
         <section
             ref={sectionRef}
             id="Resultados"
-            className="relative flex h-[1000px] overflow-x-hidden items-center justify-start bg-blue-600"
+            className="relative flex h-[1000px] overflow-x-hidden items-center justify-start bg-white"
         >
             {/* Título (se achica cuando el panel se abre) */}
             <motion.div
@@ -46,7 +46,7 @@ export default function Resultados(resultadosProps: Readonly<ResultadosProps>) {
                 transition={{ duration: 0.5 }}
                 className="h-full flex items-center justify-center"
             >
-                <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white  text-center">
+                <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold text-[#a5cd6a]  text-center">
                     Resultados
                 </h1>
             </motion.div>
@@ -56,13 +56,12 @@ export default function Resultados(resultadosProps: Readonly<ResultadosProps>) {
                 initial={{ x: "100%" }}
                 animate={{ x: open ? "0%" : "100%" }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute top-0 right-0 h-[1000px] bg-white shadow-xl w-[70%] flex flex-col items-center justify-center px-[4%] lg:px-[6%]"
+                className="absolute top-0 right-0 h-[1000px] bg-white w-[70%] flex flex-col items-center justify-center px-[4%] lg:pr-[8%]"
             >
-                <div className="flex flex-col items-center justify-center w-full  p-8 rounded-2xl border border-gray-300 shadow-2xl">
-                    <h2 className="text-blue-600 text-2xl lg:text-3xl font-bold">
+                    <h2 className="text-blue-600 text-3xl lg:text-4xl font-bold mb-8">
                         Resultados Generales PIC 2025
                     </h2>
-
+                <div className="flex flex-col items-center justify-center w-full  px-8  rounded-2xl border border-gray-300 shadow-2xl">
                     <div className="flex flex-row justify-around w-full mt-12">
                         <div className="flex flex-col items-center justify-center basis-1/2">
                             {resultadosProps.resultadoSlides.slidesData.map((slide, idx) => {
@@ -110,7 +109,8 @@ export default function Resultados(resultadosProps: Readonly<ResultadosProps>) {
                             countGeneros={resultadosProps.countGeneros}
                             labels={resultadosProps.labelsGenero}
                         />
-                    </div></div>
+                    </div>
+                    </div>
 
 
             </motion.div>

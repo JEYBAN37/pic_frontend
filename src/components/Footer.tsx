@@ -6,11 +6,11 @@ const Footer: React.FC<FooterDataStructure> = ( footerData : FooterDataStructure
 
 
     return (
-        <footer  id="Contacto" className="flex flex-col items-center justify-center bg-white py-6">
+        <footer  id="Contacto" className="flex flex-col items-center justify-center bg-gray-300 py-6">
             <div className='w-full flex flex-row justify-between'>
                 <div className='flex flex-col items-start justify-center'>
-                    <h2 className="text-2xl font-bold text-gray-400 px-10 py-2">{footerData.title}</h2>
-                    <h3 className="text-xl font-bold text-gray-400 px-10 py-2">{footerData.titleContact}</h3>
+                    <h2 className="text-2xl font-bold text-blue-600 px-10 py-2">{footerData.title}</h2>
+                    <h3 className="text-xl font-bold text-[#a5cd6a] px-10 py-2">{footerData.titleContact}</h3>
                     <p className="text-gray-500 px-10 text-sm py-2">{footerData.text}</p>
                     <div className="list-disc pl-10 text-gray-500">
                         {footerData.contact.map((item) => (
@@ -29,7 +29,7 @@ const Footer: React.FC<FooterDataStructure> = ( footerData : FooterDataStructure
                 </div>
 
                 <div className='flex flex-col items-end justify-start'>
-                    <div className='text-xl font-bold text-gray-400 px-10 text-end'>Siguenos</div>
+                    <div className='text-xl font-bold text-[#a5cd6a] px-10 text-end'>Siguenos</div>
                     <div className='flex space-x-4 px-10 py-2'>
                         {footerData.redes.map((item) => (
                             <a key={item.text} href={item.ref} className="flex items-center justify-center">

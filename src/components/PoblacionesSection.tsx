@@ -25,7 +25,7 @@ export default function Poblaciones() {
     <section
       ref={sectionRef}
       id="Poblaciones"
-      className="relative flex min-h-[1300px] items-center justify-start bg-[#a5cd6a] overflow-hidden"
+      className="relative flex min-h-[1300px] items-center justify-start bg-blue-600 overflow-hidden"
     >
       {/* Contenedor título (se achica si el panel se abre) */}
       <motion.div
@@ -33,7 +33,7 @@ export default function Poblaciones() {
         transition={{ duration: 0.5 }}
         className="flex items-center justify-center "
       >
-        <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold text-blue-600 text-center">
+        <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold text-white text-center">
           Poblaciones
         </h1>
       </motion.div>
@@ -47,11 +47,11 @@ export default function Poblaciones() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="absolute flex flex-col justify-center items-center top-0 right-0 min-h-[1300px] bg-white shadow-xl w-[70%]"
+            className="absolute flex flex-col justify-center items-center top-0 right-0 min-h-[1300px] bg-white w-[70%]"
           >
             {/* Primera sección */}
-            <div className="w-full flex flex-col justify-items-center m-10 gap-4">
-              <h1 className="text-5xl hover:text-blue-500 font-bold text-blue-600  cursor-pointer text-center">
+            <div className="w-full flex flex-col justify-items-center my-10 gap-4">
+              <h1 className="text-5xl hover:text-blue-500 font-bold text-[#a5cd6a]  cursor-pointer text-center">
                 ¿Qué Atención Reciben?
               </h1>
               <p className="text-center text-sm font-normal text-gray-400">
@@ -66,7 +66,7 @@ export default function Poblaciones() {
 
             {/* Segunda sección */}
             <div className="w-full flex flex-col justify-items-center m-10 gap-4">
-              <h1 className="text-5xl hover:text-blue-500 font-bold text-blue-600 cursor-pointer text-center">
+              <h1 className="text-5xl hover:text-blue-500 font-bold text-[#a5cd6a] cursor-pointer text-center">
                 Tecnologías PIC y Estrategias Implementadas
               </h1>
               <p className="text-center text-sm font-normal text-gray-400">
