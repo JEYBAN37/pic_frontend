@@ -1,7 +1,7 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Login from './pages/Login'
-import Dashboard from './pages/Dashboard';
+import Home from './pages/home/Home';
 import './App.css'
+import Login from "./pages/login/Login";
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/homePage" element={<Home />} />
         </Routes>
       </Router>
   )

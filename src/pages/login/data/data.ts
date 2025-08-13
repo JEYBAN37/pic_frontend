@@ -1,25 +1,25 @@
-import logo from "../assets/sjpasto.svg";
-import ciudadBienestarLogo from "../assets/bienestar.svg";
-import resumenPicA from "../assets/introduccionA.svg";
-import resumenPicB from "../assets/introduccionB.svg";
-import resumenPicC from "../assets/introduccionC.svg";
-import resumenPicD from "../assets/introduccionD.svg";
+import logo from "../../../assets/sjpasto.svg";
+import ciudadBienestarLogo from "../../../assets/bienestar.svg";
+import resumenPicA from "../../../assets/introduccionA.svg";
+import resumenPicB from "../../../assets/introduccionB.svg";
+import resumenPicC from "../../../assets/introduccionC.svg";
+import resumenPicD from "../../../assets/introduccionD.svg";
 import { SlidesList, type SlideData } from "../atoms/Slides";
-import mapaSectores from "../assets/mapaSectores.svg";
-import rom from "../assets/rom.svg";
-import indigenas from "../assets/indigenas.svg";
-import habitantes from "../assets/habitantes.svg";
-import discapacitados from "../assets/discapacitados.svg";
-import victimas from "../assets/victimas.svg";
-import educacion from "../assets/educacion.svg";
-import informacion from "../assets/informacion.svg";
-import conformacion from "../assets/conformacion.svg";
-import dispositivos from "../assets/colegio.svg";
-import email from '../assets/email.svg';
-import phone from '../assets/cell.svg';
-import ubicacion from '../assets/ubicacion.svg';
-import facebook from "../assets/facebook.png";
-import instagram from "../assets/instagram.png";
+import mapaSectores from "../../../assets/mapaSectores.svg";
+import rom from "../../../assets/rom.svg";
+import indigenas from "../../../assets/indigenas.svg";
+import habitantes from "../../../assets/habitantes.svg";
+import discapacitados from "../../../assets/discapacitados.svg";
+import victimas from "../../../assets/victimas.svg";
+import educacion from "../../../assets/educacion.svg";
+import informacion from "../../../assets/informacion.svg";
+import conformacion from "../../../assets/conformacion.svg";
+import dispositivos from "../../../assets/colegio.svg";
+import email from '../../../assets/email.svg';
+import phone from '../../../assets/cell.svg';
+import ubicacion from '../../../assets/ubicacion.svg';
+import facebook from "../../../assets/facebook.png";
+import instagram from "../../../assets/instagram.png";
 
 
 

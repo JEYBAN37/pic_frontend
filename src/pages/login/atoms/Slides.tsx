@@ -7,7 +7,7 @@ export function CustomSlide({ title, text }: { title?: string; text?: string; })
             <h1 className="hover:text-blue-600 text-xl sm:text-3xl font-bold text-[#a5cd6a]">
                 {title}
             </h1>
-            <p className="text-sm font-normal text-gray-500 py-4 whitespace-pre-line"> <ReactMarkdown>{text}</ReactMarkdown></p>
+            <div className="text-sm font-normal text-gray-500 py-4 whitespace-pre-line"> <ReactMarkdown>{text}</ReactMarkdown></div>
         </div>
     );
 }

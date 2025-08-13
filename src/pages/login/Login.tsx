@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
-import FormLogin from '../components/FormLogin';
-import NavBar from '../components/NavBar';
-import { FooterData, IntroduccionPIC, ItemsLogin, ItemsNavbar, Resultado } from '../data/data';
-import { OrbserverFunction } from '../logic/observer';
-import PoblacionesSection from '../components/PoblacionesSection';
-import IntroduccionSection from '../components/IntroduccionSection';
-import { GetStadistics } from '../logic/get';
-import ResultadosSection, { type ResultadosProps } from '../components/ResultadosSection';
-import Footer from '../components/Footer';
+import type { ResultadosProps } from './components/ResultadosSection';
+import { FooterData, IntroduccionPIC, ItemsLogin, ItemsNavbar, Resultado } from './data/data';
+import { GetStadistics } from './logic/get';
+import { OrbserverFunction } from './logic/observer';
+import NavBar from './components/NavBar';
+import IntroduccionSection from './components/IntroduccionSection';
+import ResultadosSection from './components/ResultadosSection';
+import PoblacionesSection from './components/PoblacionesSection';
+import Footer from './components/Footer';
+import FormLogin from './components/FormLogin';
+
 
 const Login: React.FC = () => {
     const [activeSection, setActiveSection] = React.useState('Inicio');

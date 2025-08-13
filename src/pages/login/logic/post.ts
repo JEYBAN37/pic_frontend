@@ -16,8 +16,7 @@ export const SendCacketoServer = async (
         });
         if (response.data.status === 'success') {
             localStorage.setItem('infoUser', JSON.stringify(response.data.user));
-            window.location.href = "http://localhost/PIC/users/home";
-            navigate('/dashboard');
+            navigate('/homePage');
         } else {
             showAlert(response.data.message || "Error al iniciar sesión");
         }
