@@ -79,7 +79,7 @@ const FormLogin: React.FC = () => {
 
 
 
-            <button className='bg-[#a5cd6a] text-white rounded h-10 mt-2 mx-6 hover:bg-blue-900 cursor-pointer text-md font-normal mb-4' type="submit">Entrar</button>
+            <button className='bg-green-600 text-white rounded h-10 mt-2 mx-6 hover:bg-blue-900 cursor-pointer text-md font-normal mb-4' type="submit">Entrar</button>
         </form>
 
     );

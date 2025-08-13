@@ -4,16 +4,16 @@ import { DataHome } from '../data/data';
 const Navbar: React.FC = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     return (
-        <nav className="w-full h-[77px] fixed top-0 left-0 z-50 shadow p-2 bg-white border-b border-gray-200  ">
+        <nav className="w-full h-[65px] fixed top-0 left-0 z-50 shadow p-2 bg-white border-b border-gray-200  ">
             <div className="flex items-center justify-between h-full px-4">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
                     <img
-                        className="w-12 h-[72px] object-cover"
+                        className="w-8 h-[50px] object-cover"
                         alt={DataHome.alt}
                         src={DataHome.img}
                     />
                     <a href={DataHome.href}>
-                        <h2 className="text-[#155dfc] text-2xl md:text-[40px] font-bold whitespace-nowrap hover:text-[#a5cd6a]">
+                        <h2 className="text-[#155dfc] text-2xl md:text-[28px] font-bold whitespace-nowrap hover:text-green-600 transition-colors">
                             {DataHome.title}
                         </h2>
                     </a>
@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
                 </button>
 
                 {/* Desktop Header Icons */}
-                <div className="hidden md:flex items-center gap-6">
+                <div className="hidden p-6 md:flex items-center gap-8">
                     {DataHome.icons.map(icon => (
                         <button
                             key={icon.key}
@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
                             aria-label={`Ir a ${icon.key}`}
                         >
                             <img
-                                className="w-5 h-5 object-cover cursor-pointer"
+                                className="w-4 h-4 object-cover cursor-pointer"
                                 alt={DataHome.alt}
                                 src={icon.default}
                             />

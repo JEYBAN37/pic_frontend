@@ -51,7 +51,7 @@ export default function Poblaciones() {
           >
             {/* Primera sección */}
             <div className="w-full flex flex-col justify-items-center my-10 gap-4">
-              <h1 className="text-5xl hover:text-blue-500 font-bold text-[#a5cd6a]  cursor-pointer text-center">
+              <h1 className="text-5xl hover:text-blue-500 font-bold text-green-600  cursor-pointer text-center">
                 ¿Qué Atención Reciben?
               </h1>
               <p className="text-center text-sm font-normal text-gray-400">
@@ -66,7 +66,7 @@ export default function Poblaciones() {
 
             {/* Segunda sección */}
             <div className="w-full flex flex-col justify-items-center m-10 gap-4">
-              <h1 className="text-5xl hover:text-blue-500 font-bold text-[#a5cd6a] cursor-pointer text-center">
+              <h1 className="text-5xl hover:text-blue-500 font-bold text-green-600 cursor-pointer text-center">
                 Tecnologías PIC y Estrategias Implementadas
               </h1>
               <p className="text-center text-sm font-normal text-gray-400">

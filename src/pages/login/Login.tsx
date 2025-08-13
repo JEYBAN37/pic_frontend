@@ -62,7 +62,7 @@ const Login: React.FC = () => {
                 <section id="Inicio" className="flex flex-col lg:flex-row px-6 py-12 sm:py-16 lg:py-24 items-center justify-center">
                     <div className="basis-1/4 lg:basis-1/2 flex flex-col items-start justify-center w-full p-[8%] lg:pl-[5%] lg:py-0 lg:pr-0 lg:h-full">
                         <h1 className="text-4xl text-blue-600 lg:text-7xl font-bold lg:mb-1 hover:text-blue-300 cursor-pointer">{ItemsLogin.title}</h1>
-                        <h1 className="text-4xl text-[#a5cd6a] lg:text-7xl font-bold lg:mb-1 hover:text-blue-300 cursor-pointer">{ItemsLogin.subtitle}</h1>
+                        <h1 className="text-4xl text-green-600 lg:text-7xl font-bold lg:mb-1 hover:text-blue-300 cursor-pointer">{ItemsLogin.subtitle}</h1>
                         <p className="text-sm lg:text-2xl text-gray-500  lg:pl-1 lg:mt-4 hover:text-black cursor-pointer">{ItemsLogin.welcomeMessage}</p>
                         <p className="hidden lg:block text-sm lg:text-md text-gray-500 lg:mt-2 lg:pr-[10%] lg:pl-1 hover:text-black cursor-pointer"><strong>{ItemsLogin.pic}</strong>{ItemsLogin.mensage}</p>
                     </div>

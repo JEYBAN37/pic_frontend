@@ -27,7 +27,7 @@ const NavBar: React.FC<NavBarProps> = ({ activeSection, itemsNavbar }) => {
                             offset={-10}
                             className={`flex cursor-pointer transition-all duration-300 text-sm xl:text-normal font-semibold tracking-wide 
                             ${activeSection === section
-                                    ? 'text-[#a5cd6a]'
+                                    ? 'text-green-600'
                                     : 'text-gray-700 hover:drop-shadow-[0_0_9px_#8bb6fd]'}`}
                         >
                             {section}
@@ -61,7 +61,7 @@ const NavBar: React.FC<NavBarProps> = ({ activeSection, itemsNavbar }) => {
                                     duration={500}
                                     offset={-10}
                                     className={`block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ml-4
-                                    ${activeSection === section ? 'text-[#a5cd6a]' : 'text-gray-700'}`}
+                                    ${activeSection === section ? 'text-green-600' : 'text-gray-700'}`}
                                     onClick={() => setShowMenu(false)}
                                 >
                                     {section}

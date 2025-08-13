@@ -47,10 +47,10 @@ export default function IntroduccionSection({
       animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }} // Entrada/Salida
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <h1 className="text-4xl text-blue-600 lg:text-6xl font-bold mb-2 hover:text-[#a5cd6a] cursor-pointer text-center">
+      <h1 className="text-4xl text-blue-600 lg:text-6xl font-bold mb-2 hover:text-green-600 cursor-pointer text-center">
         {ItemsLogin.introduccion}
       </h1>
-      <p className="text-white font-semibold hover:text-[#a5cd6a] cursor-pointer text-center">
+      <p className="text-gray-400 font-semibold hover:text-green-600 cursor-pointer text-center">
         {ItemsLogin.detail}
       </p>
 

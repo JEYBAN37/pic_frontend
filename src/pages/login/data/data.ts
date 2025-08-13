@@ -23,6 +23,7 @@ import instagram from "../../../assets/instagram.png";
 
 
 
+
 export const ItemsNavbarArray: string[] = [
   "Inicio",
   "Introduccion",

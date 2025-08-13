@@ -30,7 +30,7 @@ export default function GraficoBarras({ countGeneros, labels }: Props) {
       {
         label: "Cantidad",
         data: countGeneros,
-        backgroundColor: ["#e8f3d4", "#d3e8ae", "#b5d87e"],
+        backgroundColor: ["#16a34a", "#16a34a", "#16a34a"],
         borderWidth: 1,
         borderColor: "#fff",
       }

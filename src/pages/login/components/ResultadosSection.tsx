@@ -46,7 +46,7 @@ export default function Resultados(resultadosProps: Readonly<ResultadosProps>) {
                 transition={{ duration: 0.5 }}
                 className="h-full flex items-center justify-center"
             >
-                <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold text-[#a5cd6a]  text-center">
+                <h1 className="sm:text-2xl md:text-3xl lg:text-5xl font-bold text-green-600  text-center">
                     Resultados
                 </h1>
             </motion.div>
@@ -74,7 +74,7 @@ export default function Resultados(resultadosProps: Readonly<ResultadosProps>) {
                                         <p className="text-gray-400 text-lg lg:text-2xl font-semibold">
                                             {slide.title}
                                         </p>
-                                        <p className="text-[#a5cd6a] text-2xl lg:text-3xl xl:text-4xl font-bold">
+                                        <p className="text-green-600 text-2xl lg:text-3xl xl:text-4xl font-bold">
                                             {textoProcesado}
                                         </p>
                                     </div>
