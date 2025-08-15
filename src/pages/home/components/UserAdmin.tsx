@@ -30,7 +30,7 @@ const UserAdmin: React.FC = () => {
                             <div>
                                 <p className='text-4xl pt-4 font-bold'>151</p>
                                 <h3 className="font-normal text-black text-lg pb-4">
-                                    Usuarios
+                                    Usuarios Si
                                 </h3>
                             </div>
                         </div>
