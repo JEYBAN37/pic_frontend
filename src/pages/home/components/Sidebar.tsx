@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { SidebarData } from '../data/data';
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
 interface SidebarProps {
     nombre: string;
@@ -8,11 +9,12 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ nombre, rol }) => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isSidebarOpen] = useState(false);
     const [nombreUsuario] = useState(nombre);
     const [rolUsuario] = useState(rol);
     const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
     const [activeItem, setActiveItem] = useState<number>(1); // Por defecto "Resultados"
+    const navigate = useNavigate();
 
     const toggleSubmenu = (id: number) => {
         setActiveSubmenu(prev => (prev === id ? null : id));
@@ -22,7 +24,9 @@ const Sidebar: React.FC<SidebarProps> = ({ nombre, rol }) => {
         setActiveItem(item.id);
         if (item.hasArrow) {
             toggleSubmenu(item.id);
-        } else {
+        } else if (item.icon.route) {
+            navigate(item.icon.route);
+        } else if (item.icon.action) {
             item.icon.action();
         }
     };
@@ -67,8 +71,8 @@ const Sidebar: React.FC<SidebarProps> = ({ nombre, rol }) => {
                                     />
                                     <span
                                         className={`font-normal text-sm transition-colors ${activeItem === item.id
-                                                ? 'text-[#155dfc]'
-                                                : 'text-gray-600 group-hover:text-[#155dfc]'
+                                            ? 'text-[#155dfc]'
+                                            : 'text-gray-600 group-hover:text-[#155dfc]'
                                             }`}
                                     >
                                         {item.title}
@@ -82,8 +86,8 @@ const Sidebar: React.FC<SidebarProps> = ({ nombre, rol }) => {
                                         strokeWidth="1.5"
                                         stroke="currentColor"
                                         className={`size-3.5 transition-transform duration-200 ${activeItem === item.id
-                                                ? 'text-[#155dfc]'
-                                                : 'text-gray-400 group-hover:text-[#155dfc]'
+                                            ? 'text-[#155dfc]'
+                                            : 'text-gray-400 group-hover:text-[#155dfc]'
                                             } ${activeSubmenu === item.id ? 'rotate-0' : 'rotate-270'}`}
                                     >
                                         <path
@@ -121,6 +125,20 @@ const Sidebar: React.FC<SidebarProps> = ({ nombre, rol }) => {
                         </div>
                     ))}
                 </nav>
+
+                {/* Footer Logos */}
+                <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+                    <img
+                        className="w-[121px] h-[68px] object-contain"
+                        alt="WhatsApp logo"
+                        src="https://c.animaapp.com/DhO0cdaV/img/whatsapp-image-2025-07-03-at-9-34-32-am-removebg-preview-2.svg"
+                    />
+                    <img
+                        className="w-[98px] h-[55px] object-contain"
+                        alt="Ciudad Bienestar logo"
+                        src="https://c.animaapp.com/DhO0cdaV/img/logo-ciudad-bienestar-mesa-de-trabajo-1-removebg-preview-1.svg"
+                    />
+                </div>
             </div>
         </aside>
     );

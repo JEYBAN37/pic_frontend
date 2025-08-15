@@ -1,6 +1,7 @@
 
 import axios from 'axios';
-import { URLCAKE, type LoginFormInputs } from '../components/FormLogin';
+import { type LoginFormInputs } from '../components/FormLogin';
+import { URLCAKE } from '../../home/data/data';
 
 
 export const SendCacketoServer = async (

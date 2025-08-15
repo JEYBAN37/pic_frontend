@@ -18,6 +18,11 @@ import resultados from "../../../assets/resultados.png";
 import resultadosHover from "../../../assets/resultadosHover.png";
 import historico from "../../../assets/historico.png";
 import historicoHover from "../../../assets/historicoHover.svg";
+import adminHover from "../../../assets/admin.png";
+import admin from "../../../assets/adminHover.png";
+
+export const URLCAKE: string = "http://185.240.215.107:8012/SICB/picprueba";
+
 
 type IconData = {
   key: string;
@@ -27,23 +32,23 @@ type IconData = {
   action?: () => void;
 };
 
-export const URLCAKE = "http://localhost/PIC/";
+
 
 const iconsArray: IconData[] = [
   {
     key: "home",
     default: homeLogo,
     hover: homeHover,
-    href: "http://localhost:5173/react/#/homePage",
+    href: `${URLCAKE}/react/#/homePage`,
     action: () => {
-      window.location.href = "http://localhost:5173/react/#/homePage";
+      window.location.href = `${URLCAKE}/react/#/homePage`;
     },
   },
   {
     key: "ayuda",
     default: ayuda,
     hover: ayudaHover,
-    href: `${URLCAKE}users/home`,
+    href: `${URLCAKE}/users/home`,
     action: () => {
       window.location.href = `${URLCAKE}users/home`;
     },
@@ -72,8 +77,15 @@ function handleMouseOut(e: any, defaultSrc: string) {
 export const DataHome = {
   img: logoPic,
   alt: "Main logo",
-  href: "http://localhost:5173/react/#/homePage",
+  href: `${URLCAKE}/react/#/homePage`,
   title: "SICB",
+  adminIcon: {
+    default: admin,
+    hover: adminHover,
+    href: `${URLCAKE}/users/home`,
+    onMouseOver: (e: any) => handleMouseOver(e, adminHover),
+    onMouseOut: (e: any) => handleMouseOut(e, admin),
+  },
   icons: iconsArray.map((icon) => ({
     key: icon.key,
     default: icon.default,
@@ -112,9 +124,7 @@ export const SidebarData = {
       icon: {
         default: resultados,
         hover: resultadosHover,
-        action: () => {
-          window.location.href = `${URLCAKE}users/resultados`;
-        },
+        route: "/homePage/dashboard" ,
         onMouseOver: (e: any) => handleMouseOver(e, resultadosHover),
         onMouseOut: (e: any) => handleMouseOut(e, resultados),
       },
@@ -148,22 +158,25 @@ export const SidebarData = {
         {
           id: "2-1",
           title: "Registros Sistematizaciones",
-          action: () => window.location.href = `${URLCAKE}proactividades/index`,
+          action: () =>
+            (window.location.href = `${URLCAKE}proactividades/index`),
         },
         {
           id: "2-2",
           title: "Nueva Sistematizacion",
-          action: () => window.location.href = `${URLCAKE}proactividades/add`,
+          action: () => (window.location.href = `${URLCAKE}proactividades/add`),
         },
         {
           id: "2-3",
           title: "Registros Sesiones",
-          action: () => window.location.href = `${URLCAKE}sistematizacionprocesosviewtests/nuebus`,
+          action: () =>
+            (window.location.href = `${URLCAKE}sistematizacionprocesosviewtests/nuebus`),
         },
         {
           id: "2-4",
           title: "Agregar Sesion",
-          action: () => window.location.href = `${URLCAKE}procesoregistros/add`,
+          action: () =>
+            (window.location.href = `${URLCAKE}procesoregistros/add`),
         },
       ],
       hasArrow: true,
@@ -184,12 +197,12 @@ export const SidebarData = {
         {
           id: "3-1",
           title: "Registros Actas",
-          action: () => window.location.href = `${URLCAKE}actas/index`,
+          action: () => (window.location.href = `${URLCAKE}actas/index`),
         },
         {
           id: "3-2",
           title: "Agregar Acta",
-          action: () => window.location.href = `${URLCAKE}actas/add`,
+          action: () => (window.location.href = `${URLCAKE}actas/add`),
         },
       ],
       hasArrow: true,
@@ -207,7 +220,11 @@ export const SidebarData = {
         onMouseOut: (e: any) => handleMouseOut(e, anexo),
       },
       children: [
-        { id: "4-1", title: "Productos", action: () => window.location.href = `${URLCAKE}productos/index` },
+        {
+          id: "4-1",
+          title: "Productos",
+          action: () => (window.location.href = `${URLCAKE}productos/index`),
+        },
       ],
       hasArrow: true,
     },
@@ -224,8 +241,16 @@ export const SidebarData = {
         onMouseOut: (e: any) => handleMouseOut(e, planSesionImage),
       },
       children: [
-        { id: "5-1", title: "Registros Planes de Sesion", action: () => window.location.href = `${URLCAKE}plsesiones/nuebus` },
-        { id: "5-2", title: "Agregar Plan de Sesion", action: () => window.location.href = `${URLCAKE}plsesiones/add` },
+        {
+          id: "5-1",
+          title: "Registros Planes de Sesion",
+          action: () => (window.location.href = `${URLCAKE}plsesiones/nuebus`),
+        },
+        {
+          id: "5-2",
+          title: "Agregar Plan de Sesion",
+          action: () => (window.location.href = `${URLCAKE}plsesiones/add`),
+        },
       ],
       hasArrow: true,
     },
@@ -242,8 +267,16 @@ export const SidebarData = {
         onMouseOut: (e: any) => handleMouseOut(e, doc),
       },
       children: [
-        { id: "6-1", title: "Registros Eventos", action: () => console.log("Todas") },
-        { id: "6-2", title: "Agregar Evento", action: () => console.log("Nueva") },
+        {
+          id: "6-1",
+          title: "Registros Eventos",
+          action: () => console.log("Todas"),
+        },
+        {
+          id: "6-2",
+          title: "Agregar Evento",
+          action: () => console.log("Nueva"),
+        },
       ],
       hasArrow: true,
     },
@@ -260,11 +293,45 @@ export const SidebarData = {
         onMouseOut: (e: any) => handleMouseOut(e, historico),
       },
       children: [
-        { id: "7-1", title: "PIC 2024", action: () => window.location.href = "http://localhost/SICB/pic2024/users/home" },
-        { id: "7-2", title: "PIC 2023", action: () => window.location.href = "http://localhost/SICB/pic2023/users/home" },
-        { id: "7-3", title: "PIC 2022", action: () => window.location.href = "http://localhost/SICB/pic2022/users/home" },
+        {
+          id: "7-1",
+          title: "PIC 2024",
+          action: () =>
+            (window.location.href = `${URLCAKE}/SICB/pic2024/users/home`),
+        },
+        {
+          id: "7-2",
+          title: "PIC 2023",
+          action: () =>
+            (window.location.href = `${URLCAKE}/SICB/pic2023/users/home`),
+        },
+        {
+          id: "7-3",
+          title: "PIC 2022",
+          action: () =>
+            (window.location.href = `${URLCAKE}/SICB/pic2022/users/home`),
+        },
       ],
       hasArrow: true,
     },
   ],
 };
+
+ export interface User {
+        id: string;
+        username: string;
+        nivel: string;
+        nombre: string;
+        group_id: string;
+    }
+
+export interface DashboardCardProps {
+        id: number;
+        title: string;
+        propiedades: {
+            count: number[];
+            labelsDona: string[];
+            backgroundColor: string[];
+        };
+        render?: (props: DashboardCardProps['propiedades']) => React.ReactNode;
+    }

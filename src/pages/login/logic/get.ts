@@ -1,5 +1,5 @@
 import axios from "axios";
-import { URLCAKE } from "../components/FormLogin";
+import { URLCAKE } from "../../home/data/data";
 
 export interface StadisticsData {
     count: number;

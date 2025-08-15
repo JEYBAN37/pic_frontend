@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { SendCacketoServer } from '../logic/post';
 import { AlertComponent } from '../atoms/AlertComponent';
 import ReCAPTCHA from 'react-google-recaptcha';
-
-export const URLCAKE: string = "http://localhost/PIC";
 const siteKey = '6Lc_cZ4rAAAAACJd0UxVcpOwGo4tOwM0SNASrcGW';
 
 export interface LoginFormInputs {

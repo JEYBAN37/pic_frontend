@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { DataHome } from '../data/data';
+import { useNavigate } from 'react-router-dom';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+    grupo: string;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ grupo }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [grupoUsuario] = useState(grupo);
+    const navigate = useNavigate();
     return (
         <nav className="w-full h-[65px] fixed top-0 left-0 z-50 shadow p-2 bg-white border-b border-gray-200  ">
             <div className="flex items-center justify-between h-full px-4">
@@ -33,6 +40,24 @@ const Navbar: React.FC = () => {
 
                 {/* Desktop Header Icons */}
                 <div className="hidden p-6 md:flex items-center gap-8">
+
+                    {grupoUsuario == "1" && (
+                        <button
+                            type="button"
+                            className="p-0 bg-transparent border-none"
+                            onClick={() => navigate("/homePage/userAdmin")}
+                            onMouseOver={DataHome.adminIcon.onMouseOver}
+                            onMouseOut={DataHome.adminIcon.onMouseOut}
+                            aria-label="Ir a Administrador"
+                        >
+                            <img
+                                className="w-4 h-4 object-cover cursor-pointer"
+                                alt={DataHome.alt}
+                                src={DataHome.adminIcon.default}
+                            />
+                        </button>
+                    )}
+
                     {DataHome.icons.map(icon => (
                         <button
                             key={icon.key}
@@ -51,6 +76,7 @@ const Navbar: React.FC = () => {
                         </button>
                     ))}
                 </div>
+
             </div>
         </nav>
     );
