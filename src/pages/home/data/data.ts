@@ -20,8 +20,9 @@ import historico from "../../../assets/historico.png";
 import historicoHover from "../../../assets/historicoHover.svg";
 import adminHover from "../../../assets/admin.png";
 import admin from "../../../assets/adminHover.png";
+import type { UserType } from "../components/UserAdmin";
 
-export const URLCAKE: string = "http://185.240.215.107:8012/SICB/picprueba";
+export const URLCAKE: string = "http://localhost/PIC";
 
 
 type IconData = {
@@ -50,16 +51,16 @@ const iconsArray: IconData[] = [
     hover: ayudaHover,
     href: `${URLCAKE}/users/home`,
     action: () => {
-      window.location.href = `${URLCAKE}users/home`;
+      window.location.href = `${URLCAKE}/users/home`;
     },
   },
   {
     key: "cerrarSesion",
     default: ssesion,
     hover: ssesionHover,
-    href: `${URLCAKE}users/salir`,
+    href: `${URLCAKE}/users/salir`,
     action: () => {
-      window.location.href = `${URLCAKE}users/salir`;
+      window.location.href = `${URLCAKE}/users/salir`;
     },
   },
 ];
@@ -335,3 +336,27 @@ export interface DashboardCardProps {
         };
         render?: (props: DashboardCardProps['propiedades']) => React.ReactNode;
     }
+
+
+export interface FormInputs {
+    id?: string;
+    nombre_usuario: string;
+    username: string;
+    password: string;
+    confirm_password: string
+    cedula: string;
+    fecha_nacimiento: string;
+    cargo: string;
+    profesion: string;
+    group_id: string;
+    celular: string;
+    telefono?: string;
+}
+
+export interface ModalRegistroProps {
+    onClose: () => void;
+    onAbort: () => void;
+    usersTypes: UserType[] | null;
+    userToEdit?: FormInputs | null;
+    onSaved?: () => void;
+}

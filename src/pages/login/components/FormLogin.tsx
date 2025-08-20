@@ -18,7 +18,7 @@ export const titles = {
 
 
 // Custom hook to manage alert state
-const useAlert = () => {
+export const useAlert = () => {
     const [alertMessage, setAlertMessage] = useState<string | null>(null);
     const showAlert = (message: string) => setAlertMessage(message);
     const hideAlert = () => setAlertMessage(null);
@@ -37,7 +37,7 @@ const FormLogin: React.FC = () => {
             return;
         }
         hideAlert();
-        SendCacketoServer(data, navigate, '/users/login', null, showAlert);
+        SendCacketoServer(data, navigate, '/users/login', null, showAlert, "POST");
     };
 
 
