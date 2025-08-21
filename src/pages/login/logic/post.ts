@@ -44,6 +44,7 @@ const handlePostRequest = async (
         localStorage.setItem('infoUser', JSON.stringify(response.data.user));
         navigate('/homePage');
     } else {
+        console.error("Error al iniciar sesión:", response.data);
         showAlert(response.data.message || "Error al iniciar sesión");
     }
 };

@@ -40,13 +40,13 @@ const UserAdmin: React.FC = () => {
                 setUsersTypes([
                     {
                         id: 1,
-                        name: "Completados",
+                        name: "Administradores",
                         count: data.counts.grupo_1,
                         icon: users
                     },
                     {
                         id: 2,
-                        name: "Duplicados",
+                        name: "Referentes",
                         count: data.counts.grupo_2,
                         icon: referencia
                     },
