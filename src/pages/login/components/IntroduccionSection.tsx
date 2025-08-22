@@ -15,10 +15,7 @@ interface IntroduccionSectionProps {
   }[];
 }
 
-export default function IntroduccionSection({
-  ItemsLogin,
-  IntroduccionPIC,
-}: Readonly<IntroduccionSectionProps>) {
+export default function IntroduccionSection({ItemsLogin, IntroduccionPIC,}: Readonly<IntroduccionSectionProps>) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
 

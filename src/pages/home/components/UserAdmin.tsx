@@ -7,6 +7,8 @@ import agregar from "../../../assets/agregar.png";
 import { AnimatePresence } from "framer-motion";
 import ModalRegistro from '../atoms/ModalRegistro';
 import TablaUsuarios from '../atoms/tablaUsuarios';
+import UploadUsers from '../atoms/UploadUsers';
+
 
 export interface UserType {
     id: number;
@@ -33,6 +35,8 @@ const UserAdmin: React.FC = () => {
             setShowModal(false);
         }
     }
+
+    
 
     useEffect(() => {
         getUserTypes().then((data) => {
@@ -65,7 +69,7 @@ const UserAdmin: React.FC = () => {
     }, []);
 
 
-    
+
     return (
         <>
             <div className="mb-8">
@@ -102,10 +106,8 @@ const UserAdmin: React.FC = () => {
                 </div>
             </div>
 
-            { /* Table de busqueda de usuarios */}
-            <div className="w-full h-[500px] 2xl:h-[490px] rounded-2xl bg-white shadow p-4 border border-gray-200">
-
-
+            {/* Table de busqueda de usuarios */}
+            <div className="w-full h-[500px] 2xl:h-[490px] rounded-2xl bg-white shadow p-4 border border-gray-200 mb-8">
                 <div className="flex items-center justify-between mb-4">
                     <div className="mb-4 ml-4">
                         <h2 className="text-2xl font-semibold text-blue-600 ">Gestor de Usuarios</h2>
@@ -131,11 +133,20 @@ const UserAdmin: React.FC = () => {
                 </AnimatePresence>
                 {/* Aquí puedes agregar un componente de búsqueda o tabla para mostrar los usuarios */}
 
-                
-
                 {/* Lista resultados */}
-              <TablaUsuarios usersTypes={usersTypes}></TablaUsuarios>
+                <TablaUsuarios usersTypes={usersTypes}></TablaUsuarios>
+            </div>
 
+            {/* Table de busqueda de usuarios */}
+            <div className="w-full h-[500px] 2xl:h-[490px] rounded-2xl bg-white shadow p-4 border border-gray-200 flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                    <div className="mb-4 ml-4">
+                        <h2 className="text-2xl font-semibold text-blue-600 ">Agregador de Usuarios</h2>
+                        <p className="text-gray-600">Agrega, usuarios de manera eficiente mediante .csv</p>
+                    </div>
+                </div>
+
+                <UploadUsers userTypes={usersTypes} />
             </div>
         </>
     );

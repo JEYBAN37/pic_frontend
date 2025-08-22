@@ -22,7 +22,9 @@ import adminHover from "../../../assets/admin.png";
 import admin from "../../../assets/adminHover.png";
 import type { UserType } from "../components/UserAdmin";
 
-export const URLCAKE: string = "http://localhost/PIC";
+export const URLCAKE: string = "http://localhost/PIC/";
+export const URLTOREACT: string = "http://localhost";
+
 
 
 type IconData = {
@@ -40,9 +42,9 @@ const iconsArray: IconData[] = [
     key: "home",
     default: homeLogo,
     hover: homeHover,
-    href: `${URLCAKE}/react/#/homePage`,
+    href: `${URLTOREACT}/react/#/homePage`,
     action: () => {
-      window.location.href = `${URLCAKE}/react/#/homePage`;
+      window.location.href = `${URLTOREACT}/react/#/homePage/dashboard`;
     },
   },
   {
@@ -78,7 +80,7 @@ function handleMouseOut(e: any, defaultSrc: string) {
 export const DataHome = {
   img: logoPic,
   alt: "Main logo",
-  href: `${URLCAKE}/react/#/homePage`,
+  href: `${URLTOREACT}/react/#/homePage/dashboard`,
   title: "SICB",
   adminIcon: {
     default: admin,
@@ -271,12 +273,14 @@ export const SidebarData = {
         {
           id: "6-1",
           title: "Registros Eventos",
-          action: () => console.log("Todas"),
+         action: () =>
+            (window.location.href = `${URLCAKE}infoeventos/index`),
         },
         {
           id: "6-2",
           title: "Agregar Evento",
-          action: () => console.log("Nueva"),
+          action: () =>
+            (window.location.href = `${URLCAKE}infoeventos/add`),
         },
       ],
       hasArrow: true,

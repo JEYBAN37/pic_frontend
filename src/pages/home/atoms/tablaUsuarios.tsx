@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import { getUserList } from '../logic/get';
 import deleteUser from '../logic/delete';
 import type { FormInputs } from '../data/data';
-
+import {ArrowRight} from 'lucide-react';
 export interface UserList {
     id: string;
     username: string;
@@ -43,7 +43,6 @@ const TablaUsuarios: React.FC<{ usersTypes: UserType[] | null }> = ({ usersTypes
                 }));
                 setUserList(flattened);
                 setTotalPages(data.totalPages || 1); // <- actualiza total de páginas
-                setPage(1); // Reinicia la página al buscar
             } else {
                 setUserList([]);
             }
@@ -88,7 +87,7 @@ const TablaUsuarios: React.FC<{ usersTypes: UserType[] | null }> = ({ usersTypes
                     placeholder="Buscar usuario..."
                     className="border border-gray-300 rounded p-2 w-1/2"
                     value={searchText}
-                    onChange={e => setSearchText(e.target.value)}
+                    onChange={e => {setSearchText(e.target.value); setPage(1)}}
                 />
 
                 <select
@@ -96,7 +95,7 @@ const TablaUsuarios: React.FC<{ usersTypes: UserType[] | null }> = ({ usersTypes
                     id="role"
                     className="border border-gray-300 rounded p-2 w-1/8"
                     value={selectedRole}
-                    onChange={e => setSelectedRole(e.target.value)}
+                    onChange={e => {setSelectedRole(e.target.value); setPage(1)}}
                 >
                     <option value="">Todos</option>
                     {usersTypes?.map(userType => (
@@ -174,21 +173,21 @@ function renderUserTable(
 
                 
             </div>
-            <div className="flex justify-between items-center py-2">
+            <div className="flex justify-center items-center py-2 pl-4">
                     <button
-                        className="bg-blue-600 text-white px-2 py-2 rounded disabled:bg-gray-300 font-medium text-sm"
+                        className="bg-blue-600 text-white px-2 py-2 rounded disabled:bg-gray-300 font-medium text-sm cursor-pointer hover:bg-green-600"
                         onClick={() => setPage(prev => Math.max(prev - 1, 1))}
                         disabled={page === 1}
                     >
-                        Anterior
+                        <ArrowRight className='w-4 h-4 rotate-180' />
                     </button>
-                    <span>Página {page} de {totalPages}</span>
+                    <span className='px-4 text-xs'>Página {page} de {totalPages}</span>
                     <button
-                        className="bg-blue-600 text-white px-2 py-2 rounded disabled:bg-gray-300 font-medium text-sm"
+                        className="bg-blue-600 text-white px-2 py-2 rounded disabled:bg-gray-300 font-medium text-sm cursor-pointer hover:bg-green-600"
                         onClick={() => setPage(prev => Math.min(prev + 1, totalPages))}
                         disabled={page === totalPages}
                     >
-                        Siguiente
+                        <ArrowRight className='w-4 h-4' />
                     </button>
                 </div>
         </div>

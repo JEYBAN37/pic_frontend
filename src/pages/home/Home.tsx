@@ -5,10 +5,25 @@ import { getVerifyUser } from './logic/get';
 import type {  User } from './data/data';
 import { Outlet } from 'react-router-dom';
 
+    const roles = [{
+        id: "1",
+        name: "Administrador",
+    }, {
+        id: "2",
+        name: "Referente",
+    }, {
+        id: "3",
+        name: "Operador PIC",
+    }];
+
+
 const Home: React.FC = () => {
     const [user, setUser] = useState<User | null>(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+    const asignarRoles = (user: User) => {
+        const rol = roles.find(r => r.id === user.group_id);
+        return rol ? rol.name : "Desconocido";
+    };
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -25,7 +40,7 @@ const Home: React.FC = () => {
             {/* Main Content */}
             <div className="flex h-full">
                 {/* Sidebar */}
-                <Sidebar nombre={user.nombre} rol={"Administrador"} />
+                <Sidebar nombre={user.nombre} rol={asignarRoles(user)} />
                 {/* Mobile Overlay */}
                 {isSidebarOpen && (
                     <div

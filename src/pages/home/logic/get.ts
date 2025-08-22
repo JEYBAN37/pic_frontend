@@ -3,7 +3,7 @@ import { URLCAKE } from "../data/data";
 
 export const getVerifyUser = async () => {
   return axios
-    .get(`${URLCAKE}/users/check`, { withCredentials: true })
+    .get(`${URLCAKE}/users/check`, { withCredentials: true }) // Llama a USERCONTROLLER funcion check
     .then((res) => {
       if (res.data.authenticated) {
         const userInfo = localStorage.getItem("infoUser");
